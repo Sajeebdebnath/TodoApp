@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/font-awesome.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/default.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/style.css') }}">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+
+
+    {% endblock %}
+</body>
+
+
+<!-- JS Script -->
+<script src="{{ url_for('static', filename='assets/js/jqery 3.2.1.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/bootstrap 4.js') }}"></script>
+</html>

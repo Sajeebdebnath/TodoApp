@@ -1,0 +1,9 @@
+.header-text {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 25px 0px;
+    text-align: center;
+}
+tr td:nth-child(2) {
+    width: 60%;
+}

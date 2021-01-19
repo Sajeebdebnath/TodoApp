@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="form-design">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="header-text">Todo App</div>
+
+                    {% with messages = get_flashed_messages() %}
+                      {% if messages %}
+                        {% for message in messages %}
+                         <div class="alert alert-success">{{ message }}</div>
+                        {% endfor %}
+                      {% endif %}
+                    {% endwith %}
+
+                    <form action="/submit_form" method="post">
+                      <div class="row">
+                        <div class="col-lg-9">
+                          <input type="text" name="task" class="form-control" placeholder="Add Your Task">
+                        </div>
+                        <div class="col-lg-3">
+                          <input type="submit" class="btn btn-success" value="Add Task">
+                        </div>
+                      </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="card">
+                        <div class="card-header text-center">
+                          <b>Today's My Todo List</b>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">SL</th>
+                                    <th scope="col">Todo Title</th>
+                                    <th scope="col">Created Date</th>
+                                    <th scope="col">Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                {% if all_data: %}
+                                  {% for single_data in all_data %}
+                                    <tr>
+                                    <th scope="row">{{ loop.index }}</th>
+                                    <td>{{ single_data.1 }}</td>
+                                    <td>{{ single_data.2 }}</td>
+                                    <td>
+                                        <a href="/edit/{{ single_data.0 }}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
+                                        <a href="/delete/{{ single_data.0 }}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+                                    </td>
+                                  </tr>
+                                  {% endfor %}
+                                {% else: %}
+                                    <tr>
+                                        <td colspan="3" class="text-center">No Task Found</td>
+                                    </tr>
+                                </tbody>
+                                {% endif %}
+                              </table>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

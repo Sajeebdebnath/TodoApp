@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Task{% endblock %}
+{% block content %}
+    <div class="form-design">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 offset-lg-4">
+                    <div class="header-text">Todo App</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 offset-lg-4">
+                    <div class="card">
+                         <div class="card-header text-center">
+                          <b>Edit TODO Task</b>
+                        </div>
+                        <div class="card-body">
+                            <form action="/update_task" method="post">
+                                <div class="form-group">
+                                  <label for="name">Todo Title:</label>
+                                  <input type="hidden" class="form-control" name="task_id" id="id" value="{{ data.0 }}">
+                                  <input type="text" class="form-control" name="task_name" id="name" value="{{ data.1 }}">
+                                </div>
+                                <button type="submit" class="btn btn-success">Update Task</button>
+                              </form>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
